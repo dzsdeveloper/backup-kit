@@ -1,0 +1,5 @@
+*.log
+verify-*
+config.yaml
+repo.password
+.DS_Store

@@ -1,0 +1,24 @@
+# backup-kit configuration
+# Copy to /etc/backup-kit/config.yaml and edit.
+
+backend: restic              # restic | borg
+repository: /mnt/backup/repo  # or s3:s3.amazonaws.com/bucket, borg@host:repo, etc.
+password_file: /etc/backup-kit/repo.password
+source_paths: /home /etc /var/www
+excludes_file: /etc/backup-kit/excludes.txt
+
+# retention
+retention_keep_daily: 7
+retention_keep_weekly: 4
+retention_keep_monthly: 6
+
+# verification
+verify_restore: true
+
+# alerting (optional)
+alert_webhook: ""            # https://hooks.slack.com/... or Discord/ntfy URL
+alert_email: ""              # you@example.com
+
+# paths (optional overrides via env)
+# BACKUP_KIT_LOG_DIR=/var/log/backup-kit
+# BACKUP_KIT_STATE_DIR=/var/lib/backup-kit
